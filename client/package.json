@@ -11,7 +11,7 @@
     "test:e2e:ci": "start-server-and-test preview http://localhost:4173/ 'cypress run --e2e'",
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
-    "lint": "eslint . --ext .vue,.cjs,.ts --fix --ignore-path .gitignore"
+    "lint": "eslint . --ext .vue,.cjs,.ts --fix"
   },
   "dependencies": {
     "pinia": "^2.0.23",
@@ -21,7 +21,7 @@
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.2.0",
     "@types/jsdom": "^20.0.0",
-    "@types/node": "^18.11.0",
+    "@types/node": "~18.8.0",
     "@vitejs/plugin-vue": "^3.1.2",
     "@vue/eslint-config-typescript": "^11.0.2",
     "@vue/test-utils": "^2.1.0",

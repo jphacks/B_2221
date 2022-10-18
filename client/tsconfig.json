@@ -1,7 +1,8 @@
 {
   "files": [],
   "compilerOptions": {
-    "allowJs": false
+    "allowJs": false,
+    "strictNullChecks": true
   },
   "references": [
     {
