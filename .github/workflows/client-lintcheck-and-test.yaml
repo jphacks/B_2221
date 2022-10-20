@@ -15,12 +15,12 @@ jobs:
         with:
           node-version: ${{ matrix.node_version }}
           check-latest: true
-          cache: 'npm'
+          cache: "npm"
       - name: upgrade npm
         run: npm i -g npm@latest
 
       - name: Install Dependencies
-        run: npm ci
+        run: cd client && npm ci
 
       - name: Lint Check & Test
         run: npm run ci
