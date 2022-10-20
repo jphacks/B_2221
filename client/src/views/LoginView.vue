@@ -1,16 +1,9 @@
-
 <script setup lang="ts">
 // TODO: APIから取得する
 import { ref } from 'vue'
-const text_Id = ref('')
-const text_Pw = ref('')
+const textId = ref('')
+const password = ref('')
 const myIcon = 'src/assets/logo.svg'
-function IdInput(e) {
-  text_Id.value = e.target.value
-}
-function PwInput(e) {
-  text_Pw.value = e.target.value
-}
 //function Login()
 //function SignUp()
 </script>
@@ -23,12 +16,17 @@ function PwInput(e) {
       alt="My photo（仮）"
       width="250"
     />
-    <input :value="text_Id" @input="IdInput" placeholder="Your ID">
-    <input type="password" :value="text_Pw" @input="PwInput" placeholder="Your Password">
+    <input
+      v-model="textId"
+      placeholder="Your ID"
+    />
+    <input
+      v-model="password"
+      type="password"
+      placeholder="Your Password"
+    />
     <button style="background: orange">Login</button>
-    <item>
-      <button>Sign up</button>
-    </item>
+    <a href="/signup">Sign up</a>
   </main>
 </template>
 
