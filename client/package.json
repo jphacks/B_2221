@@ -12,7 +12,10 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
     "lint": "eslint --cache --fix .",
-    "format": "prettier --cache --write . --ignore-path .gitignore"
+    "format": "prettier --cache --write . --ignore-path .gitignore",
+    "check:lint": "eslint --cache .",
+    "check:format": "prettier --cache --check . --ignore-path .gitignore",
+    "ci": "run-p check:format check:lint type-check test:unit"
   },
   "dependencies": {
     "pinia": "^2.0.23",
