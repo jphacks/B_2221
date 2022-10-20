@@ -5,18 +5,19 @@
     <main>
         <dev class="box1">
             <dev class="aa">
-                <img class="take-photo" src="../../public\image\img_example.png">
+                <img class="take-photo" src="../../public/img/img_example.png">
             </dev>
             <button class="torikesu">取り消す</button>
         </dev>
         <dev class="box2">
-        <img class="predict-photo" src="../../public\image\img_example.png">
+        <img class="predict-photo" src="../../public/img/img_example.png">
         </dev>
         <dev class="box3">
             <button class="confirm">この人です</button>
             <button class="home">ホームへ</button>
         </dev>
     </main>
+
 </template>
 
 
@@ -62,23 +63,20 @@ img.predict-photo {
 }
 button.confirm {
     width: 214px;
-    height: 41px;
+    height: 45px;
     top: 50px;
-    border-radius: 15px;
 }
 
 button.home {
     width: 214px;
     height: 45px;
     top: 75px;
-    border-radius: 15px;
 }
 
 button.torikesu {
-    width: 125px;
-    height: 55px;
+    width: 214px;
+    height: 45px;
     left: 50px;
     top: 0px;
-    border-radius: 15px;
 }
 </style>
