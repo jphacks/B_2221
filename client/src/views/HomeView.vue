@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+import IconPlus from '@/components/icons/IconPlus.vue'
+import ModalSNSRegister from '@/components/ModalSNSRegister.vue'
+
 // TODO: APIから取得する
 const myIcon = 'src/assets/logo.svg'
 const snsLists = [
@@ -15,6 +19,14 @@ const snsLists = [
     url: 'https://github.com/u-sho',
   },
 ]
+
+const isOpenModalSNSRegister = ref(false)
+function openModalSNSRegister() {
+  isOpenModalSNSRegister.value = true
+}
+function closeModalSNSRegister() {
+  isOpenModalSNSRegister.value = false
+}
 </script>
 
 <template>
@@ -39,6 +51,16 @@ const snsLists = [
           {{ sns.userName }}
         </a>
       </li>
+      <li>
+        <button @click="openModalSNSRegister">
+          <IconPlus />
+          追加する
+        </button>
+        <ModalSNSRegister
+          v-if="isOpenModalSNSRegister"
+          @close="closeModalSNSRegister"
+        />
+      </li>
     </ul>
   </main>
 </template>
@@ -59,5 +81,12 @@ li {
   line-height: 1;
   font-size: 1.5rem;
   margin: 1.5rem 0;
+}
+button {
+  display: inline;
+  border: none;
+  background: none;
+  font-size: 1.5rem;
+  color: var(--vt-c-text-light-2);
 }
 </style>

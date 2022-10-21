@@ -1,0 +1,26 @@
+<template>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="20"
+    height="20"
+  >
+    <g>
+      <line
+        x1="0"
+        y1="10"
+        x2="20"
+        y2="10"
+        stroke="gray"
+        stroke-width="2"
+      />
+      <line
+        x1="10"
+        y1="0"
+        x2="10"
+        y2="20"
+        stroke="gray"
+        stroke-width="2"
+      />
+    </g>
+  </svg>
+</template>
