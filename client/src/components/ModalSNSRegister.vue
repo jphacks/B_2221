@@ -1,20 +1,18 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, onMounted } from 'vue'
 
-const props = withDefaults(
-  defineProps<{
-    isOpen: boolean
-  }>(),
-  {
-    isOpen: false,
-  }
-)
+const dialog = ref<HTMLDialogElement | null>(null)
+onMounted(() => {
+  dialog.value?.showModal()
+})
 const emit = defineEmits(['close'])
 function register() {
   // TODO: ここで登録処理を実装する
+  dialog.value?.close()
   emit('close')
 }
 function cancel() {
+  dialog.value?.close()
   emit('close')
 }
 
@@ -87,7 +85,7 @@ const inputPrefix = computed(() => {
 
 <template>
   <Teleport to="body">
-    <dialog :open="isOpen">
+    <dialog ref="dialog">
       <form method="dialog">
         <label>
           SNSタイプ:
@@ -136,3 +134,66 @@ const inputPrefix = computed(() => {
     </dialog>
   </Teleport>
 </template>
+
+<style scoped>
+dialog {
+  width: 100%;
+  font-size: 1.5rem;
+  padding: 1.5rem;
+  margin: auto;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+}
+dialog::backdrop {
+  background-color: var(--color-background-mute);
+}
+dialog[open] {
+  animation: bottom-up 1s ease-out;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+label {
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+select {
+  font-size: 1.5rem;
+  border: 1px solid var(--color-border);
+}
+option {
+  background-color: var(--color-background);
+  border: 1px 0px solid var(--color-border);
+}
+input {
+  font-size: 1.5rem;
+  border: none;
+}
+button {
+  font-size: 1.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  dialog {
+    width: 50%;
+  }
+}
+
+@keyframes bottom-up {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+</style>

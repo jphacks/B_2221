@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import IconPlus from '@/components/icons/IconPlus.vue'
 import { ref } from 'vue'
+import IconPlus from '@/components/icons/IconPlus.vue'
+import ModalSNSRegister from '@/components/ModalSNSRegister.vue'
 
 // TODO: APIから取得する
 const myIcon = 'src/assets/logo.svg'
@@ -22,6 +23,9 @@ const snsLists = [
 const isOpenModalSNSRegister = ref(false)
 function openModalSNSRegister() {
   isOpenModalSNSRegister.value = true
+}
+function closeModalSNSRegister() {
+  isOpenModalSNSRegister.value = false
 }
 </script>
 
@@ -52,6 +56,10 @@ function openModalSNSRegister() {
           <IconPlus />
           追加する
         </button>
+        <ModalSNSRegister
+          v-if="isOpenModalSNSRegister"
+          @close="closeModalSNSRegister"
+        />
       </li>
     </ul>
   </main>
