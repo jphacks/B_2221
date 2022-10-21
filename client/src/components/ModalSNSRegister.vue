@@ -93,6 +93,7 @@ const inputType = computed(() => {
 })
 
 const accountID = ref('')
+const isAccountPublication = ref(true)
 </script>
 
 <template>
@@ -125,17 +126,24 @@ const accountID = ref('')
         </label>
         <label>
           {{ inputTitle }}:
-          <span>
-            {{ inputPrefix }}
-            <input
-              v-model="accountID"
-              :type="inputType"
-            />
-          </span>
+          {{ inputPrefix }}
+          <input
+            v-model="accountID"
+            class="input--id"
+            :type="inputType"
+          />
+        </label>
+        <label>
+          <input
+            v-model="isAccountPublication"
+            type="checkbox"
+          />
+          公開する
         </label>
         <menu>
           <button
             type="submit"
+            class="primary"
             @click="register"
           >
             登録する
@@ -170,8 +178,7 @@ dialog[open] {
 }
 
 form {
-  display: grid;
-  grid-template-columns: 1fr;
+  text-align: center;
 }
 label {
   display: inline-block;
@@ -186,8 +193,13 @@ option {
   border: 1px 0px solid var(--color-border);
 }
 input {
+  display: inline-block;
   font-size: 1.5rem;
-  border: none;
+  border: 1px solid var(--color-border);
+}
+menu {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
 }
 button {
   font-size: 1.5rem;
@@ -197,6 +209,9 @@ button {
   color: var(--color-text);
   padding: 0.5rem 1rem;
   margin: 0.5rem;
+}
+button.primary {
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
 }
 
 @media (min-width: 768px) {
