@@ -52,7 +52,7 @@ const inputTitle = computed(() => {
 const inputPrefix = computed(() => {
   switch (accountType.value) {
     case 'email':
-      return 'mailto:'
+      return ''
     case 'facebook':
       return 'https://www.facebook.com/'
     case 'github':
@@ -81,6 +81,18 @@ const inputPrefix = computed(() => {
       return ''
   }
 })
+const inputType = computed(() => {
+  switch (accountType.value) {
+    case 'email':
+      return 'email'
+    case 'website':
+      return 'url'
+    default:
+      return 'text'
+  }
+})
+
+const accountID = ref('')
 </script>
 
 <template>
@@ -113,15 +125,20 @@ const inputPrefix = computed(() => {
         </label>
         <label>
           {{ inputTitle }}:
-          <span>{{ inputPrefix }}</span>
-          <input type="text" />
+          <span>
+            {{ inputPrefix }}
+            <input
+              v-model="accountID"
+              :type="inputType"
+            />
+          </span>
         </label>
         <menu>
           <button
             type="submit"
             @click="register"
           >
-            登録
+            登録する
           </button>
           <button
             type="reset"
