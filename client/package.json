@@ -15,7 +15,7 @@
     "format": "prettier --cache --write . --ignore-path .gitignore",
     "check:lint": "eslint --cache .",
     "check:format": "prettier --cache --check . --ignore-path .gitignore",
-    "ci": "run-p check:format check:lint type-check test:unit"
+    "ci": "run-p check:* type-check test:unit"
   },
   "dependencies": {
     "pinia": "^2.0.23",

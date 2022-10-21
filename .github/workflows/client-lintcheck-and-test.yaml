@@ -5,28 +5,32 @@ on:
       - "client/**"
       - ".github/workflows/client-lintcheck-and-test.yaml"
 jobs:
-  lint:
-    runs-on: ubuntu-latest
+  lintcheck-and-test:
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
+        os:
+          - ubuntu-latest
+          - macos-latest
         node_version:
           - 16
           - 18
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v3
-        with:
-          path: "client"
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node_version }}
           check-latest: true
           cache: "npm"
+          cache-dependency-path: client/package-lock.json
       - name: upgrade npm
         run: npm i -g npm@latest
 
       - name: Install Dependencies
         run: npm ci
+        working-directory: client
 
       - name: Lint Check & Test
         run: npm run ci
+        working-directory: client
