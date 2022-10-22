@@ -1,6 +1,6 @@
 {
-  "name": "face-card",
-  "version": "0.0.0",
+  "name": "face-search",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "dev": "vite",
