@@ -3,7 +3,6 @@
 import { ref } from 'vue'
 const textId = ref('')
 const password = ref('')
-const myIcon = 'src/assets/logo.svg'
 
 //function Login()
 //function SignUp()
@@ -12,10 +11,6 @@ const myIcon = 'src/assets/logo.svg'
 <template>
   <main>
     <h1>新規登録</h1>
-    <img
-      :src="myIcon"
-      alt="My photo（仮）"
-      width="250"
     />
     <input
       v-model="textId"
