@@ -18,6 +18,12 @@ const snsLists = [
     userName: '@u-sho',
     url: 'https://github.com/u-sho',
   },
+  {
+    type: 'github',
+    icon: 'src/assets/icons/GitHub-Mark-120px-plus.png',
+    userName: '@u-sho',
+    url: 'https://github.com/u-sho',
+  },
 ]
 
 const isOpenModalSNSRegister = ref(false)
@@ -62,6 +68,9 @@ function closeModalSNSRegister() {
         />
       </li>
     </ul>
+    <button style="background: orange">共有する</button>
+    <button style="background: orange">編集</button>
+    <a href="/signup">Sign up</a>
   </main>
 </template>
 
