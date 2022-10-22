@@ -1,6 +1,6 @@
 # フェイス・サーチ
 
-[![顔写真を撮るだけでSNSアカウントを探して共有するWebアプリ「フェイス・サーチ」](./docs/images/hero.png](https://www.youtube.com/watch?v=LUPQFB4QyVo)
+[![顔写真を撮るだけでSNSアカウントを探して共有するWebアプリ「フェイス・サーチ」](./docs/images/hero.png)](https://www.youtube.com/watch?v=LUPQFB4QyVo)
 
 ## 製品概要
 
